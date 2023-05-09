@@ -1,0 +1,24 @@
+const { BasePage } = require("./basePage");
+exports.RegistrationPage = class RegistrationPage extends BasePage {
+
+    constructor(page) {
+        super(page, '/sign-up');
+        this.fullName = page.locator("[placeholder='Full name']");
+        this.email = page.locator("[placeholder='Email address']");
+        this.password = page.locator("[placeholder='Password']");
+        this.registerButton = page.getByRole('button');
+
+        this.singInLink = page.locator("[href='/sign-in']");
+    }
+
+    async registration(userName, userEmail, userPassword) {
+        await this.fullName.type(userName);
+        await this.email.type(userEmail);
+        await this.password.type(userPassword);
+        await this.registerButton.click();
+    }
+
+    async openSingInPage(){
+        await this.singInLink.click();
+    }
+}
