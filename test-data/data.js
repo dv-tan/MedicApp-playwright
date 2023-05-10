@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 const userData = {
     generatedEmail: faker.internet.email(),
     generatedFullName: faker.name.fullName(),
-    password: 'Tester_123',
+    password: 'Testers_123',
     generatedAge: faker.datatype.number({
         'min': 0,
         'max': 100

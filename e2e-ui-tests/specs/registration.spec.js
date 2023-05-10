@@ -5,7 +5,7 @@ const { userData } = require('../../test-data/data');
 const config = require("../../playwright.config");
 
 let registrationPage;
-const env = config.default.use.env;
+const user = users[config.default.use.env].user;
 
 
 test.describe('Registration tests', () => {
@@ -15,8 +15,8 @@ test.describe('Registration tests', () => {
         await registrationPage.open();
     });
 
-    test('Registration with valid data', async ({ page }) => {
-        await registrationPage.registration('Test', 'tester1@gmail.com', 'Tester_123');
+    test.only('Registration with valid data', async ({ page }) => {
+        await registrationPage.registration(userData.generatedFullName, userData.generatedEmail, userData.password);
         await expect(page).toHaveURL('http://omega-stage.qa.nolimit.school/sign-in');
     });
 

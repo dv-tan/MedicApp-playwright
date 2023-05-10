@@ -7,7 +7,7 @@ exports.RegistrationPage = class RegistrationPage extends BasePage {
         this.email = page.locator("[placeholder='Email address']");
         this.password = page.locator("[placeholder='Password']");
         this.registerButton = page.getByRole('button');
-
+        
         this.singInLink = page.locator("[href='/sign-in']");
     }
 
